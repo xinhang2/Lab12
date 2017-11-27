@@ -59,7 +59,7 @@ public class IntersectionOfTwoSortedArray {
 	}
 
 	/**
-	 * The intersection of two sorted arrays
+	 * The intersection of two sorted arrays. Implement this method.
 	 *
 	 * @param array1
 	 *            sorted input array1
