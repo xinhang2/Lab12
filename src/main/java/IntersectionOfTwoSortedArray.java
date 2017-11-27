@@ -9,19 +9,43 @@ public class IntersectionOfTwoSortedArray {
 	 * <p>
 	 * This method prints out the intersection of two sorted arrays.
 	 *
-	 * @param unused
-	 *            unused input arguments
+	 * @param args
+	 *            input arrays for testing
 	 */
 	@SuppressWarnings("checkstyle:magicnumber")
-	public static void main(final String[] unused) {
-
+	public static void main(final String[] args) {
 		System.out.println("Find the intersection of two sorted arrays");
-		int[][] testCases = { { 1, 2, 2, 3 }, { 2, 2, 3, 4 }, { 1, 3, 5, 9 }, { 6, 7, 8, 10 } };
-		for (int i = 0; i < testCases.length - 1; i++) {
-			test(testCases[i], testCases[i + 1]);
+		if (args.length == 0) {
+			System.out.println("Running provided test cases.");
+			int[][] testCases = { { 1, 2, 2, 3 }, { 2, 2, 3, 4 }, { 1, 3, 5, 9 }, { 6, 7, 8, 10 } };
+			for (int i = 0; i < testCases.length - 1; i++) {
+				test(testCases[i], testCases[i + 1]);
+			}
+		} else if (args.length == 2) {
+			String[] splits1 = args[0].split(" ");
+			String[] splits2 = args[1].split(" ");
+			int[] array1 = new int[splits1.length];
+			for (int i = 0; i < array1.length; i++) {
+				array1[i] = Integer.parseInt(splits1[i]);
+			}
+			int[] array2 = new int[splits2.length];
+			for (int i = 0; i < array2.length; i++) {
+				array2[i] = Integer.parseInt(splits2[i]);
+			}
+			test(array1, array2);
+		} else {
+			System.out.println("Please input two sorted arrays");
 		}
 	}
 
+	/**
+	 * Test for finding intersection of two sorted arrays
+	 *
+	 * @param array1
+	 *            sorted input array1
+	 * @param array2
+	 *            sorted input array2
+	 */
 	private static void test(final int[] array1, final int[] array2) {
 		int[] intersection = intersection(array1, array2);
 		intersection = intersection(array1, array2);
