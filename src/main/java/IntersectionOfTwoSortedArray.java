@@ -3,6 +3,7 @@
  *
  * @see <a href="https://cs125.cs.illinois.edu/lab/12/">Lab 12 Description</a>
  */
+import java.util.*;
 public class IntersectionOfTwoSortedArray {
 	/**
 	 * Main method for testing.
@@ -68,6 +69,27 @@ public class IntersectionOfTwoSortedArray {
 	 * @return the intersection of the two arrays, empty array is no intersection
 	 */
 	public static int[] intersection(final int[] array1, final int[] array2) {
-		return new int[0];
+		int i = 0;
+		int j = 0;
+		List<Integer> list = new ArrayList<>();
+		
+		while(i<array1.length&&j<array2.length){
+			if(array1[i]<array2[j]){
+				i++;
+				continue;
+			}else if(array1[i]>array2[j]){
+				j++;
+				continue;
+			}else{
+				list.add(array1[i]);
+				i++;
+				j++;
+			}
+		}
+		int [] list1 = new int [list.size()];
+		for(int n = 0;n<list.size();n++){
+			list1[n] = list.get(n);
+		}
+		return list1;
 	}
 }
